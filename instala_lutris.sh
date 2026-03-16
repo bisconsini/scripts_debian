@@ -2,6 +2,11 @@
 
 set -e
 #[--------------------------------------------------------------------------------------------]
+dpkg --add-architecture i386
+apt update
+#[--------------------------------------------------------------------------------------------]
+apt install --no-install-recommends libgl1-mesa-dri:i386 libgl1:i386 libglx-mesa0:i386 mesa-vulkan-drivers mesa-vulkan-drivers:i386 vulkan-tools mesa-utils mesa-vulkan-drivers gamemode
+#[--------------------------------------------------------------------------------------------]
 URL=$(wget -qO- https://api.github.com/repos/lutris/lutris/releases/latest | grep browser_download_url | grep _all.deb | cut -d '"' -f4)
 
 wget -O /tmp/lutris.deb "$URL"
